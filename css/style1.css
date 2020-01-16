@@ -1,0 +1,416 @@
+ @charset "utf-8"
+/*
+
+ 19FA-SWDV-131-001-Web Styling
+ 
+ Author: Kait Low
+ Date: 8/22/2019
+ 
+ LAST MODIFIED: 9/13/2019
+ 
+ Version: 4
+ 
+ Filename: style1.css
+ 
+*/
+
+/*=== HTML Styles ===*/
+
+html {
+	/*width: 100%;*/
+	background-color: #19424E;
+}
+
+/*=== Header Styles ===*/
+
+header{
+	background-color: rgb(235, 228, 165);
+	margin-bottom: 0px;
+}
+
+/*=== Figure Styles ==*/
+
+figure{
+	background-color: rgb(235, 228, 165);
+	margin: 0px auto 35px;
+	width: 80%;	
+}
+jumbotron, figure img{
+	background-size: contain;
+	border-radius: 35px 35px;
+	border: 5px solid #19424E;
+	display: block;
+	width: 100%;
+	height: 200px;
+}
+
+/*=== Article Styles ==*/
+
+ h1{
+	color:  #19424E;
+	text-align: center;
+	text-shadow: rgb(188, 0, 45) 10px 5px 8px;
+	font-family: Garamond;
+	background-color: rgb(235, 228, 165);
+    font-size: 2.8em;
+	font-weight: bold;
+	transition: color 0.5s ease-in 0.5s,
+		        font-size 1s ease,
+				letter-spacing 2s ease-out,
+				text-shadow 1s cubic-bezier(0.6, 0, 0.8, 0.5);
+}
+article {
+	display: block;
+}
+article p {
+	text-align: center;
+	width: 80%;
+	margin: auto;
+	padding: 20px;
+	font-size: 1.2em;
+	font-family: Verdana;
+}
+img#smile{
+	width: 90px;
+	height: 90px;
+	padding-left: 45%;
+	color: #19424E;
+}
+/*=== Body Styles ===*/
+
+body {
+	background-color: rgb(25, 66, 78);
+	width: 80%;
+	margin: 0 10%;
+}
+
+ /*=== Nav Styles ===*/
+ 
+nav{
+	display: block;
+	text-align: center;
+	background-color: white;
+	padding: 1px;
+	width: 99.5%;
+	opacity: 0.8;
+	font-family: Garamond;
+	border: 2px solid rgb(25, 66, 78);
+	border-radius: 5px;
+}
+nav ul li{
+	display: inline;
+	align-content: space-around;
+	padding-left: 5%;
+	padding-right: 5%;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+nav ul li a {
+	color: rgb(188, 0, 45);
+	text-shadow: rgba(0, 0, 0, 1);
+	transition: color 0.5s ease-in 0.5s,
+		        font-size 1s ease,
+				letter-spacing 1s ease-out,
+				text-shadow 1s cubic-bezier(0.6, 0, 0.8, 0.5);
+}
+nav ul li a:hover {
+	color: rgb(25, 66, 78);
+	font-size: 2em;
+	letter-spacing: 0.1em;
+	text-shadow: rgba(0, 0, 0, 0.5) 15px -3px 8px;
+}
+
+a:focus {
+	color: rgb(25, 66, 78);
+}
+a:active {
+	color: rgb(235, 228, 165);
+}
+a#navicon{
+	display: none;
+}
+
+/*=== Main Styles ==*/
+ 
+main{
+	background-color:rgb(235, 228, 165);
+	padding-bottom: 30px;
+}
+
+/*=== Table Styles (8/30/2019) ==*/ 
+
+	table{
+		background: white;
+		border: 2px solid rgb(188, 0, 45);
+		border-collapse: collapse;
+		width: 96%;
+		margin-left: 2%;
+		margin-right: 2%;
+		font-size: 1em;
+		font-family: Helvetica;
+	}
+	table th, table td{
+		border: 3px solid rgb(25, 66, 78);
+		text-align: center;
+		padding: 5px;
+		color: black;
+		height: 20px;
+	} 
+	table tbody tr th{
+		width: 16%;
+	}
+	table tr td#genre{
+		text-align: left;
+	}
+	table thead{
+		background-color: rgb(188, 0, 45);
+		
+		font-size: 1.3em;
+	}
+	table thead tr th{
+		color: white;
+	}
+	
+	table th a:hover {
+	color: rgb(188, 0, 45);
+	font-size: 1.1em;
+	letter-spacing: 0.1em;
+	text-shadow: rgba(0, 0, 0, 0.5) 15px -3px 8px;
+	
+	}
+	table th a:focus {
+		color: rgb(188, 0, 45);
+	}
+	table th a:active {
+		color: rgb(235, 228, 165);
+	}
+	
+	#tablePic{
+		display: block;
+		float: center;
+		width: 60px;
+		height: 80px;
+		padding-left: 30%;
+		padding-bottom: 4px;
+	}
+	#tablePic:hover{
+		
+	}
+	
+/*=== Form Styles ===*/
+
+	form{
+		width: 60%;
+		align-content: center;
+		padding-left: 20%;
+		padding-right: 20%;
+	}
+	legend{
+		color: #BC002D;
+		font-size: 1.7em;
+	}
+	div#buttons{
+		text-align: center;
+		width: 100%;
+	}
+	input[type='submit'], input[type='reset']{
+		font-size: 1.2em;
+			padding: 5px;
+			margin: 15px;
+	}	
+	textarea{
+		margin-top: 10px;
+		height: 100px;
+		width: 75%;
+	}
+	div{
+		text-align: center;
+		font-size: 1.2em;
+	}
+	input#mailRec{
+		text-align: center;
+	}
+	
+	/*=== Description Styles ===*/
+	
+	#titlePic{
+		display: block;
+		float: center;
+		width: 200px;
+		height: 300px;
+		margin: auto;
+	}
+	#descrip{
+		text-align: left;
+	}
+	iframe#trailer{
+		padding-left: 27%;
+	}
+	
+	/*=== Footer Styles ===*/
+	
+	footer{
+		background-color: rgb(188, 0, 45);
+		height: 70px;
+		padding-top: 0px;
+		padding-bottom: 20px;
+		margin-top: 50px;
+		font-family: Garamond;	
+		border: 2px solid rgb(25, 66, 78);
+		border-radius: 25px;
+	}
+	footer p {
+		font-size: 1.2em;
+		text-align: center;
+		padding-top: 3px;
+		color: white;
+		text-decoration: underline;
+		margin-top: 1px;
+		margin-bottom: 10px;
+	}
+	footer img#mediaLink{
+		display: inline;
+		padding-left: 44%
+	}
+	footer img {
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-top: 0px;
+		padding-bottom: 5px;
+	}
+	
+	
+
+  /* New Styles Added Below */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Mobile Styles: 0px to 480px
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+   
+   @media only screen and (max-width: 480px){
+	   
+	   /*~~~ Nav Styles ~~~*/
+	 
+	   a#navicon {
+		   display: block;
+		   background-color: rgb(188, 0, 45);
+		
+	   }
+	   nav{
+		   border: none;
+	   }
+	   nav.horizontal ul li{
+		   font-size: 1.5em;
+		   display: block;
+	   }
+	   nav.horizontal ul {
+		   display: none;
+		   text-align: center;
+		   padding-left: 10px;
+		   padding-right: 10px;
+	   }
+
+	   a#navicon:hover+ul, nav.horizontal ul:hover {
+		   display: block;
+		   color: rgb(25, 66, 78);
+		   letter-spacing: 0.1em;
+		   text-shadow: rgba(0, 0, 0, 0.5) 15px -3px 8px;
+	   }
+	   /*~~~ h1 Styles ~~~*/
+	   
+	   h1{
+		   font-size: 1.9em;
+	   }
+	   
+	   /*~~~ Table Styles ~~~*/
+		
+		tbody td#status, th#status, td#genre, th#genre{
+			display: none;
+		}
+		table tr{
+			height: 50px;
+		}
+		table thead th{
+			color: white;
+		}
+		table th a:hover {
+		color: rgb(188, 0, 45);
+		}
+		table th a:focus {
+			color: rgb(188, 0, 45);
+		}
+		table th a:active {
+			color: rgb(235, 228, 165);
+		}
+		#tablePic{
+			display: none;
+		}
+		/*~~~ Article Styles ~~~*/
+		
+		article{
+			font-size: 1em;
+		}
+		p#startRead{
+			font-size: 1em;
+		}
+		
+		/*~~~ Video Styles ~~~*/
+		
+		iframe#trailer{
+			width: 96%;
+			height: 200px;
+			padding-left: 2%;
+			padding-right: 2%;
+		}
+		
+		/*~~~ Form Styles ~~*/
+		
+		form{
+			width: 80%;
+			padding-left: 10%;
+			padding-right: 10%;
+	
+		}
+		/*~~~ Footer Styles ~~~*/
+		footer{
+			border: none;
+			border-radius: 10px
+		}
+		footer img#mediaLink{
+			display: inline;
+			padding-left: 35%;			
+		}
+		/*~~~ Article Styles ~~~*/
+		img#smile{
+			padding-left: 38%;
+		}
+   
+/* =================================
+    Tablet Styles: 481px and greater
+   =================================
+*/
+
+  @media only screen and (min-width: 481px){
+	   
+	   nav.horizontal ul{
+		   text-align: center;
+		   padding-left: 5px;
+		   padding-right: 5px;
+	   } 
+	  
+	
+
+   }
+   
+/* =================================
+    Desktop Styles: 769px and greater
+   =================================
+*/
+   
+    @media only screen and (min-width: 769px){
+
+   }
+ 
+ 
+ 
