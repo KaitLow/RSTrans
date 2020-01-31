@@ -56,19 +56,18 @@
 <head>
 <!--
 
- 19FA-SWDV-131-001-Web Styling
+ 19FA-SWDV-131-001:Web Styling
  
  Author: Kait Low
  Date: 9/6/2019
-
- LAST MODIFIED: 9/13/2019
  
-Modified SWDV-210 1/24/2020
+ LAST MODiFIED: 
+ 20SP-SWDV-210-001: Intro Server Side Programming  
+ DATE :1/24/2020
 
  Filename: thanks.php
- 
+
 Thank you for feedback page
- 
 -->
    <title>Thank you!</title>
    
@@ -107,7 +106,7 @@ Thank you for feedback page
             <h1>You gave... <?php echo $Rating ?> points!</h1>
 	
 	<img id="smile" src="images/happy-face-icon-5.png" alt="smiley face" />
-        
+              
 </article>
 <footer>
     <p>Follow us on Facebook and Instagram!</p>
