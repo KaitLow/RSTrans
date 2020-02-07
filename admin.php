@@ -1,25 +1,31 @@
 <?php
-    if (!isset($employee_id)) {
-    $employee_id = filter_input(INPUT_GET, 'employee_id', 
-            FILTER_VALIDATE_INT);
-    if ($employee_id == NULL || $employee_id == FALSE) {
-        $employee_id= 1;
-    }
-}
+//************************************************
+//20SP-SWDV-210-001: Intro Server Side Programming 
+//  Author: Kait Low
+//  Date: 8/22/2019
+//
+//  20SP-SWDV-210-001: Intro Server Side Programming 
+//  LAST MODIFIED: 2/7/2020
+//  
+//  Filename: admin.php
+//  
+//  Admin page to view visitor information.
+//************************************************
+    require_once('./model/database.php');
+    require('./model/employee.php');
+    require('./model/visitors.php');
 
-//    $visitorName = filter_input(INPUT_POST, 'name');
-//    $visitorEmail = filter_input(INPUT_POST, 'email');
-//    $visitorComm = filter_input(INPUT_POST, 'message');
-//    $Rating = filter_input(INPUT_POST, 'rate');    
-//    $visitorUpdates = filter_input(INPUT_POST, 'mailBack');
-    
-            //Allows access to the database
-            $dsn = 'mysql:host=localhost;dbname=RSTrans';
-            $username = 'root';
-            $password = 'Pa$$w0rd';
+        if (!isset($employee_id)) {
+        $employee_id = filter_input(INPUT_GET, 'employee_id', 
+                FILTER_VALIDATE_INT);
+        if ($employee_id == NULL || $employee_id == FALSE) {
+            $employee_id= 1;
+        }
+    }
+         $password = 'Pa$$w0rd';
 
             try {
-                $db = new PDO($dsn, $username, $password);
+                $db = Database::getDB();   //function 1
 
             } catch (PDOException $e) {
                 $error_message = $e->getMessage();
@@ -28,34 +34,15 @@
             }
             
             //Retrieves employee information from database
-            $query = 'SELECT employeeID, employeeName FROM employee '
-                    . 'ORDER BY employeeID';
-            $statement = $db->prepare($query);
-            $statement->execute();  
-            $employees = $statement;
+            $employees = getEmployee();    //function 2 
             
             //Retrieves visitor information from database
-            $query2 = 'SELECT * FROM visitor WHERE employeeID = :employeeID '
-                    . 'ORDER BY visitorEmail;';
-            $statement2 = $db->prepare($query2);
-            $statement2->bindValue(":employeeID", $employee_id);
-            $statement2->execute();   
-            $visitors = $statement2;
+            $visitors = getVisitor();  //function 3
+            
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<!--
- SWDV-210-001-Intro Server Side Programming:
- 
- Author: Kait Low
- Date: 1/31/2020
-
- LAST MODIFIED: 1/31/2020
- Filename: admin.php
- 
-Admin page to view visitor information.
--->
    <title>Visitor Information</title>
    
    <meta charset="utf-8" />
@@ -79,22 +66,22 @@ Admin page to view visitor information.
     </div>
       <nav class="horizontal"> <a id="navicon" href="#"><img src="images/navicon.png" alt="" /></a>
             <ul>
-            <li><a link href="index.html">Home</a></li>
-            <li><a link href="seriesList.html">Novel List</a></li>
-            <li><a link href="mangaList.html">Manga List</a></li>
-            <li><a link href="contact.html">Contact</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="seriesList.html">Novel List</a></li>
+            <li><a href="mangaList.html">Manga List</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.php">Admin</a></li>
             </ul>
 	</nav>
 </header> 
 <article>
-        <ul>
+    </br>
             <?php foreach ($employees as $employee) : ?>
-            <li><a href="admin.php?employee_id=<?php echo $employee['employeeID']; ?>">
+     <div id="employeeList"><a href="admin.php?employee_id=<?php echo $employee['employeeID']; ?>">
                     <?php echo $employee['employeeName']; ?>
-                </a>
-            </li>
+     </div> 
             <?php endforeach; ?>
-        </ul>
+    </br>
             <table>
             <tr>
                 <th>Name</th>

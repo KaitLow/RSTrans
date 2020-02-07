@@ -25,6 +25,6 @@
             $sucess = $statement->execute();        
             $statement->closeCursor();
             }
-    // Display the Product List page
+    // Display the admin page
     include('admin.php');
 ?>

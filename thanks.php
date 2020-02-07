@@ -1,5 +1,17 @@
 <?php
-    
+//************************************************
+//20SP-SWDV-210-001: Intro Server Side Programming 
+//  Author: Kait Low
+//  Date: 8/22/2019
+//
+//  20SP-SWDV-210-001: Intro Server Side Programming 
+//  LAST MODIFIED: 2/7/2020
+//  
+//  Filename: admin.php
+//  
+//  Admin page to view visitor information.
+//************************************************
+    require('./model/database.php');
     $visitorName = filter_input(INPUT_POST, 'name');
     $visitorEmail = filter_input(INPUT_POST, 'email');
     $visitorComm = filter_input(INPUT_POST, 'message');
@@ -14,13 +26,10 @@
         echo "Form Data Error: " . $error; 
         exit();
         } else {
-            //Allows access to database
-            $dsn = 'mysql:host=localhost;dbname=RSTrans';
-            $username = 'root';
-            $password = 'Pa$$w0rd';
-
+//            //Allows access to database
             try {
-                $db = new PDO($dsn, $username, $password);
+                //$db = new PDO($dsn, $username, $password);
+                $db = Database::getDB();
 
             } catch (PDOException $e) {
                 $error_message = $e->getMessage();
@@ -55,15 +64,13 @@
 <html>
 <head>
 <!--
-
  19FA-SWDV-131-001:Web Styling
  
  Author: Kait Low
  Date: 9/6/2019
  
- LAST MODiFIED: 
- 20SP-SWDV-210-001: Intro Server Side Programming  
- DATE :1/24/2020
+ 20SP-SWDV-210-001: Intro Server Side Programming 
+ LAST MODIFIED: 2/7/2020
 
  Filename: thanks.php
 
@@ -97,6 +104,7 @@ Thank you for feedback page
             <li><a link href="seriesList.html">Novel List</a></li>
             <li><a link href="mangaList.html">Manga List</a></li>
             <li><a link href="contact.html">Contact</a></li>
+            <li><a href="login.php">Admin</a></li>
             </ul>
 	</nav>
 </header> 

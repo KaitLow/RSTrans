@@ -6,7 +6,8 @@
  Author: Kait Low
  Date: 8/22/2019
  
- LAST MODIFIED: 9/13/2019
+ 20SP-SWDV-210-001: Intro Server Side Programming 
+ LAST MODIFIED: 2/7/2020
  
  Version: 4
  
@@ -100,8 +101,8 @@ nav{
 nav ul li{
 	display: inline;
 	align-content: space-around;
-	padding-left: 5%;
-	padding-right: 5%;
+	padding-left: 2%;
+	padding-right: 2%;
 	font-size: 1.2em;
 	font-weight: bold;
 }
@@ -115,7 +116,7 @@ nav ul li a {
 }
 nav ul li a:hover {
 	color: rgb(25, 66, 78);
-	font-size: 2em;
+	font-size: 1.5em;
 	letter-spacing: 0.1em;
 	text-shadow: rgba(0, 0, 0, 0.5) 15px -3px 8px;
 }
@@ -230,7 +231,7 @@ main{
 	input#mailRec{
 		text-align: center;
 	}
-	
+
 	/*=== Description Styles ===*/
 	
 	#titlePic{
@@ -279,8 +280,33 @@ main{
 		padding-bottom: 5px;
 	}
        
- 
+        /*=== Employee List Styles ===*/
 
+    	   nav.employeeList{
+		   border: none;
+	   }
+	   nav.employeeList ul li{
+		   font-size: 1.5em;
+		   display: block;
+	   }
+	   nav.employeeList ul {
+		   display: none;
+		   text-align: center;
+		   padding-left: 10px;
+		   padding-right: 10px;
+	   }
+
+	   a#navicon:hover+ul, nav.employeeList ul:hover {
+		   display: block;
+		   color: rgb(25, 66, 78);
+		   letter-spacing: 0.1em;
+		   text-shadow: rgba(0, 0, 0, 0.5) 15px -3px 8px;
+	   }
+ 
+        /*=== Visitor Info Styles ===*/
+
+        
+        
   /* New Styles Added Below */
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -294,8 +320,7 @@ main{
 	 
 	   a#navicon {
 		   display: block;
-		   background-color: rgb(188, 0, 45);
-		
+		   background-color: rgb(188, 0, 45);		
 	   }
 	   nav{
 		   border: none;
@@ -385,7 +410,7 @@ main{
 		img#smile{
 			padding-left: 38%;
 		}
-   
+   }
 /* =================================
     Tablet Styles: 481px and greater
    =================================
