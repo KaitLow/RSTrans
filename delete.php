@@ -8,8 +8,7 @@
                 $db = new PDO($dsn, $username, $password);
 
             } catch (PDOException $e) {
-                $error_message = $e->getMessage();
-                echo "DB Error: " . $error_message; 
+                include('database_error.php');
                 exit();
             }
 
@@ -22,7 +21,12 @@
                       WHERE visitorID = :visitor_id';
             $statement = $db->prepare($query);
             $statement->bindValue(':visitor_id', $visitor_id);
-            $sucess = $statement->execute();        
+            try {
+                $statement->execute(); 
+           } catch (Exception $ex){
+                  include('database_error.php');
+                exit();
+           }      
             $statement->closeCursor();
             }
     // Display the admin page

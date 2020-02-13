@@ -304,8 +304,14 @@ main{
 	   }
  
         /*=== Visitor Info Styles ===*/
-
         
+        
+        /*=== Login Styles ===*/
+
+        #loginform{
+            width: 200px;
+            padding-left: 20%;
+        }
         
   /* New Styles Added Below */
 

@@ -5,7 +5,7 @@
 //  Date: 8/22/2019
 //
 //  20SP-SWDV-210-001: Intro Server Side Programming 
-//  LAST MODIFIED: 2/7/2020
+//  LAST MODIFIED: 2/12/2020
 //  
 //  Filename: admin.php
 //  
@@ -28,17 +28,14 @@
                 $db = Database::getDB();   //function 1
 
             } catch (PDOException $e) {
-                $error_message = $e->getMessage();
-                echo "DB Error: " . $error_message; 
+                include('./model/database_error.php');
                 exit();
-            }
-            
+            }          
             //Retrieves employee information from database
             $employees = getEmployee();    //function 2 
             
             //Retrieves visitor information from database
-            $visitors = getVisitor();  //function 3
-            
+            $visitors = getVisitor();  //function 3           
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,7 +45,7 @@
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="keywords" content="rising sun translations, japanese to english, manga, novels, english subs" />
-   <meta name="description" content="Thank you!" /> 
+   <meta name="description" content="Admin" /> 
    <link href="css/style1.css" rel="stylesheet" media="all" />
    <link rel="shortcut icon" href="images/favicon-16x16.png" sizes="16x16" type="image/png">
    <link rel="icon" href="images/favicon-32x32.png" sizes="16x16 32x32" type="image/png"> 

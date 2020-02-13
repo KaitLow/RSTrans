@@ -50,18 +50,18 @@
 <h1>Rising Sun Translations</h1>
 	<p>Please login to access the admin page!</p>
 
-  <form method="post" action="admin.php">
+  <form  id="loginform" method="post" action="admin.php">
 	<fieldset>
 	<legend>Login!</legend>
 <br />
-        <div id="loginform">
-            <label for="name">Name<span style="color: #BC002D">*</span></label>
+        <div>
+            <label for="name">Name<span style="color: #BC002D">*</span></label></br>
             <input name="name" id="name" type="text" required/>
         </div>
 		
 <br />
-        <div id="loginform">
-            <label for="password">Password<span style="color: #BC002D">*</span></label>
+        <div>
+            <label for="password">Password<span style="color: #BC002D">*</span></label></br>
             <input name="password" id="password" type="password" required/>
         </div>
 		

@@ -5,77 +5,73 @@
 //  Date: 8/22/2019
 //
 //  20SP-SWDV-210-001: Intro Server Side Programming 
-//  LAST MODIFIED: 2/7/2020
+//  LAST MODIFIED: 2/12/2020
 //  
-//  Filename: admin.php
+//  Filename: thanks.php
 //  
-//  Admin page to view visitor information.
+//  Thank you page linked to contact page.
 //************************************************
     require('./model/database.php');
     $visitorName = filter_input(INPUT_POST, 'name');
     $visitorEmail = filter_input(INPUT_POST, 'email');
     $visitorComm = filter_input(INPUT_POST, 'message');
     $Rating = filter_input(INPUT_POST, 'rate');
+    $error_message = null;
     
     $visitorUpdates = filter_input(INPUT_POST, 'mailBack');
     
     // Validate inputs
     if ($visitorName == null || $visitorEmail == null) {
-        $error = "Invalid input data. Check all fields and try again.";
+        $error_message = "Invalid input data. Check all fields and try again.";
         
-        echo "Form Data Error: " . $error; 
-        exit();
+        echo "Form Data Error: " . $error_message; 
+        //exit();
         } else {
-//            //Allows access to database
+            //Allows access to database
             try {
                 //$db = new PDO($dsn, $username, $password);
                 $db = Database::getDB();
 
             } catch (PDOException $e) {
                 $error_message = $e->getMessage();
-                /* include('database_error.php'); */
+                include('./database_error.php'); 
                 echo "DB Error: " . $error_message; 
                 exit();
             }
-            
-             if($visitorUpdates != null){
-                 $visitorUpdates = 1;
-             } else{
-                 $visitorUpdates = 0;
-             }
- 
-            //Sends data back to database
-            $query = 'INSERT INTO visitor
-                         (visitorName, visitorEmail, visitorComm, Rating, visitorUpdates, employeeID)
-                      VALUES
-                         (:visitorName, :visitorEmail, :visitorComm, :Rating, :visitorUpdates, 1)';
-            $statement = $db->prepare($query);
-            $statement->bindValue(':visitorName', $visitorName );
-            $statement->bindValue(':visitorEmail', $visitorEmail);
-            $statement->bindValue(':visitorComm', $visitorComm);
-            $statement->bindValue(':Rating', $Rating);
-            $statement->bindValue(':visitorUpdates', $visitorUpdates);
-            $statement->execute();
-            $statement->closeCursor();
-    }
 
+    if(!$error_message){
+      
+        //Sends data back to database
+        $query = 'INSERT INTO visitor
+                     (visitorName, visitorEmail, visitorComm, Rating, visitorUpdates, employeeID)
+                  VALUES
+                     (:visitorName, :visitorEmail, :visitorComm, :Rating, :visitorUpdates, 1)';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':visitorName', $visitorName );
+        $statement->bindValue(':visitorEmail', $visitorEmail);
+        $statement->bindValue(':visitorComm', $visitorComm);
+        $statement->bindValue(':Rating', $Rating);  
+        $statement->bindValue(':visitorUpdates', $visitorUpdates);
+          try {
+                $count = $statement->execute(); 
+           } catch (Exception $ex){
+                include('./database_error.php');
+                exit();
+           } 
+        $statement->closeCursor();
+
+        if($count < 1){
+           include('database_error.php');
+           exit();
+       }else{
+           $error_message = 'Thank you for contacting me, '. $visitorName.'! </br> You gave '. $Rating . '  points!';
+       }
+    }
+ }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<!--
- 19FA-SWDV-131-001:Web Styling
- 
- Author: Kait Low
- Date: 9/6/2019
- 
- 20SP-SWDV-210-001: Intro Server Side Programming 
- LAST MODIFIED: 2/7/2020
-
- Filename: thanks.php
-
-Thank you for feedback page
--->
    <title>Thank you!</title>
    
    <meta charset="utf-8" />
@@ -110,10 +106,7 @@ Thank you for feedback page
 </header> 
 <article>
 	<!--<h1>Thank you for your feedback!</h1>-->
-          <h1>Thank you, <?php echo $visitorName; ?></h1>
-            <h1>You gave... <?php echo $Rating ?> points!</h1>
-	
-	<img id="smile" src="images/happy-face-icon-5.png" alt="smiley face" />
+          <h1><?php echo $error_message; ?></h1>
               
 </article>
 <footer>
